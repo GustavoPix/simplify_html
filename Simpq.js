@@ -65,8 +65,8 @@
     window.deleteElement = Delete;
     window.createElement = CreateElement;
 
-    Object.prototype.listen = Listen;
-    Object.prototype.addElement = Add;
-    Object.prototype.deleteThis = Delete;
+    HTMLElement.prototype.listen= Listen;
+    HTMLElement.prototype.addElement = Add;
+    HTMLElement.prototype.deleteThis = Delete;
 
 })();
