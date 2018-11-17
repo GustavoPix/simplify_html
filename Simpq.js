@@ -1,6 +1,7 @@
 (function Simpq(){
 
     var _objScreenListener = [];
+    var _objOffScreenListener = [];
 
     window.addEventListener('load', function(){
         window.footer = $('footer');
@@ -21,6 +22,23 @@
                 }
                 else if (element.entered)
                     element.entered = false;
+            });
+            
+        });
+        window.addEventListener("scroll",function(){
+            _objOffScreenListener.forEach((element,i) => {
+                if (element.element.offsetTop>scrollY && element.element.offsetTop < scrollY + innerHeight)
+                {
+                    if (!element.entered)
+                        element.entered = true;
+                }
+                else if (element.entered)
+                {
+                    element.f();
+                    if (!element.repeater)
+                        _objScreenListener.splice(i,1);
+                    element.entered = false;
+                }
             });
             
         });
@@ -84,7 +102,16 @@
             repeater:repeater || false,
             f:f,
             entered:false
-        })
+        });
+    }
+    function OffScreen(f,repeater)
+    {
+        _objOffScreenListener.push({
+            element:this,
+            repeater:repeater || false,
+            f:f,
+            entered:false
+        });
     }
 
     window.query =  {
@@ -103,6 +130,7 @@
     HTMLElement.prototype.addElement = Add;
     HTMLElement.prototype.deleteThis = Delete;
     HTMLElement.prototype.onScreen = OnScreen;
+    HTMLElement.prototype.offScreen = OffScreen;
 
 
     function sleep(ms)
