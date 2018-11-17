@@ -1,9 +1,29 @@
 (function Simpq(){
 
+    var _objScreenListener = [];
+
     window.addEventListener('load', function(){
         window.footer = $('footer');
         window.header = $('header');
         window.body = $('body');
+        
+        window.addEventListener("scroll",function(){
+            _objScreenListener.forEach((element,i) => {
+                if (element.element.offsetTop>scrollY && element.element.offsetTop < scrollY + innerHeight)
+                {
+                    if (!element.entered)
+                    {
+                        element.entered = true;
+                        element.f();
+                        if (!element.repeater)
+                            _objScreenListener.splice(i,1);
+                    }
+                }
+                else if (element.entered)
+                    element.entered = false;
+            });
+            
+        });
     });
     
         
@@ -53,6 +73,19 @@
     function Listen(type,f){
         this.addEventListener(type,f);
     }
+    function Click(f)
+    {
+        Listen("click",f);
+    }
+    function OnScreen(f,repeater)
+    {
+        _objScreenListener.push({
+            element:this,
+            repeater:repeater || false,
+            f:f,
+            entered:false
+        })
+    }
 
     window.query =  {
         $:$,
@@ -66,7 +99,15 @@
     window.createElement = CreateElement;
 
     HTMLElement.prototype.listen= Listen;
+    HTMLElement.prototype.click = Click;
     HTMLElement.prototype.addElement = Add;
     HTMLElement.prototype.deleteThis = Delete;
+    HTMLElement.prototype.onScreen = OnScreen;
+
+
+    function sleep(ms)
+    {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
 
 })();

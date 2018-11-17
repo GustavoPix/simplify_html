@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Simpq - Prismacode</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="Simpq.js"></script>
+</head>
+<body>
+    <h1>Simpq</h1>
+    <p>Utilize o editor de código do navegador para testar!</p>
+    <h2>Window</h2>
+    <ul>
+        <li>
+            <h3>query.$</h3>
+            <code>query.$('.class')</code>
+            <p>Retorna um elemento na página buscado</p>
+            <p>HTMLElement</p>
+        </li>
+        <li>
+            <h3>query.$$</h3>
+            <code>query.$$('#id')</code>
+            <p>Retorna todos os elementos na página buscado </p>
+            <p>[HTMLElement]</p>
+        </li>
+        <li>
+            <h3>query.$Class</h3>
+            <code>query.$Class('class')</code>
+            <p>Retorna um elemento com a classe buscada</p>
+            <p>HTMLElement</p>
+        </li>
+        <li>
+            <h3>query.$$Class</h3>
+            <code>query.$$Class('class')</code>
+            <p>Retorna todos os elementos com a classe buscada</p>
+            <p>[HTMLElement]</p>
+        </li>
+        <li>
+            <h3>query.$Id</h3>
+            <code>query.$Id('id')</code>
+            <p>Retorna um elemento com o id buscado</p>
+            <p>HTMLElement</p>
+        </li>
+        <li>
+            <h3>query.$$Id</h3>
+            <code>query.$$Id('id')</code>
+            <p>Retorna todos os elemento com o id buscado</p>
+            <p>[HTMLElement]</p>
+        </li>
+        <li>
+            <h3>deleteElement</h3>
+            <code>deleteElement(element)</code>
+            <p>Deleta um emelento da página</p>
+            <p>void</p>
+        </li>
+        <li>
+            <h3>createElement</h3>
+            <code>createElement('tag',content)</code>
+            <p>cria uma tag e adciona o conteudo na mesma</p>
+            <p>HTMLElement</p>
+        </li>
+    </ul>
+    <h2>HTMLElement</h2>
+    <ul>
+        <li>
+            <h3>listen</h3>
+            <code>HTMLElement.listen('type',function)</code>
+            <p>Adiciona um Event Listener ao objeto</p>
+            <p>void</p>
+        </li>
+        <li>
+            <h3>click</h3>
+            <code>HTMLElement.click(function)</code>
+            <p>Executa uma função ao clicar no elemento</p>
+            <p>void</p>
+        </li>
+        <li>
+            <h3>addElement</h3>
+            <code>HTMLElement.addElement(content)</code>
+            <p>Adiciona um elemento como filho</p>
+            <p>HTMLElement</p>
+        </li>
+        <li>
+            <h3>deleteThis</h3>
+            <code>HTMLElement.deleteThis()</code>
+            <p>Deleta o elemento</p>
+            <p>void</p>
+        </li>
+        <li>
+            <h3>onScreen</h3>
+            <code>HTMLElement.onScreen(function,repeatable:boolean)</code>
+            <p>executa uma funçao ao elemento entrar na tela, segundo parametro: <code>true</code> para repetir sempre que entrar na tela e <code>false</code> para executar apenas uma vez  </p>
+            <p>void</p>
+        </li>
+    </ul>
+    <footer>@2018 - Prismacode.com</footer>
+</body>
+</html>
