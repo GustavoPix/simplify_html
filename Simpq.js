@@ -131,6 +131,12 @@
     HTMLElement.prototype.deleteThis = Delete;
     HTMLElement.prototype.onScreen = OnScreen;
     HTMLElement.prototype.offScreen = OffScreen;
+    SVGElement.prototype.listen= Listen;
+    SVGElement.prototype.click = Click;
+    SVGElement.prototype.addElement = Add;
+    SVGElement.prototype.deleteThis = Delete;
+    SVGElement.prototype.onScreen = OnScreen;
+    SVGElement.prototype.offScreen = OffScreen;
 
 
     function sleep(ms)
