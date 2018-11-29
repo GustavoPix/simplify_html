@@ -88,12 +88,13 @@
             console.error("window não pode ser deletado");
             
     }
-    function Listen(type,f){
-        this.addEventListener(type,f);
+    function Listen(type,f,e){
+        var _a = e || this;
+        _a.addEventListener(type,f);
     }
     function Click(f)
     {
-        Listen("click",f);
+        Listen("click",f,this);
     }
     function OnScreen(f,repeater)
     {
